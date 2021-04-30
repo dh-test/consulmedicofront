@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>
+                Agregar Cita Médica
+            </h3>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label>Seleccione Paciente:</label>
+                    <select id="idPaciente" name="idPaciente" class="form-control" (change)="selectChangeHandler($event)">
+                        <option [value]="paciente.idPaciente" *ngFor="let paciente of pacientes">
+                            {{paciente.nombre}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Historial:</label>
+                    <input [(ngModel)]="consulta.historial" name="historial" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="">Descripción de la enfermedad:</label>
+                    <input [(ngModel)]="consulta.descripcion" name="descripcion" type="text" class="form-control" />
+                </div>
+                
+                <!-- <input [(ngModel)]="consulta.idPaciente" name="idPaciente" type="text" class="form-control" /> -->
+                
+                <div class="form-group">
+                    <label>Seleccione Doctor</label>
+                    <select id="consulta.idDoctor" class="form-control" (change)="selectChangeHandlerD($event)">
+                        <option [value]="doctor.idDoctor" *ngFor="let doctor of doctores">
+                            {{doctor.nombre}}
+                        </option>
+                    </select>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="">Fecha Consulta:</label>
+                    <input [(ngModel)]="consulta.fechaConsulta" name="fechaConsulta" type="date" class="form-control" />
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <button (click)="Guardar(consulta)" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</div>
